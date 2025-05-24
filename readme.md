@@ -98,7 +98,7 @@ This will start the following services:
 
 ## Future Improvements
 
-- Evaluation pipeline.
+- Agent evaluation using mocked QA pairs.
 - Multi-user session and memory support.
 - Advanced chunking and retrieval strategies.
 - PDF upload in demo page for user-specific queries.
