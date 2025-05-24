@@ -1,5 +1,5 @@
 __pycache__
-rag/embeddings/
+embeddings/
 qdrant_data/
-*.ipynb
+*_poc.ipynb
 .env

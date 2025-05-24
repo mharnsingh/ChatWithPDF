@@ -1,0 +1,70 @@
+Question:
+What is the main focus of the paper titled 'Evaluating the Text-to-SQL Capabilities of Large Language Models'?
+Answer:
+The paper focuses on empirically evaluating the Text-to-SQL capabilities of large language models, particularly Codex and GPT-3, analyzing their performance on benchmarks like Spider, GeoQuery, and Scholar without finetuning and with few-shot prompting.
+
+=== qa break ===
+
+Question:
+Which language models are evaluated in this study for Text-to-SQL tasks?
+Answer:
+The study evaluates OpenAI's GPT-3 models (ada, babbage, curie, davinci) and Codex models (cushman-codex and davinci-codex) for Text-to-SQL tasks.
+
+=== qa break ===
+
+Question:
+How does Codex perform on the Spider benchmark without any finetuning?
+Answer:
+Codex achieves up to 67% execution accuracy on the Spider development set without any finetuning, which is competitive with state-of-the-art models like BRIDGE v2.
+
+=== qa break ===
+
+Question:
+What impact does prompt design have on Codex's Text-to-SQL performance?
+Answer:
+Prompt design is critical; including database schema and content information progressively improves execution accuracy from 8.3% with question-only prompts to 67.0% with prompts that include CREATE TABLE statements plus SELECT queries with sample rows.
+
+=== qa break ===
+
+Question:
+What are the main error types identified in Codex's Text-to-SQL predictions?
+Answer:
+Errors include Semantic Incorrect behaviors such as shortcuts using specific table values or world knowledge, GROUP BY convention mistakes, and Ambiguous Correct behaviors like selecting extra columns or different but acceptable columns, as well as some invalid SQL errors.
+
+=== qa break ===
+
+Question:
+How does Codex perform in few-shot learning settings on GeoQuery and Scholar datasets compared to a finetuned T5-3B baseline?
+Answer:
+In few-shot settings, Codex outperforms the T5-3B baseline finetuned on the same examples, especially on GeoQuery where it beats the baseline even in zero-shot, and shows better adaptation on Scholar with 5 and 10-shot examples.
+
+=== qa break ===
+
+Question:
+What are the key differences between GPT-3 and Codex models in this evaluation?
+Answer:
+GPT-3 models are trained on diverse internet text, while Codex is further finetuned on code from GitHub. Codex generally performs better on Text-to-SQL tasks, especially with prompts including schema and sample data, and benefits from a longer context window in the davinci-codex model.
+
+=== qa break ===
+
+Question:
+What metrics are used to evaluate Text-to-SQL model performance in this paper?
+Answer:
+The paper uses Valid SQL percentage (VA), Execution Accuracy (EX), and Test-Suite Accuracy (TS) to evaluate model performance on Text-to-SQL tasks.
+
+=== qa break ===
+
+Question:
+Why did the authors choose not to evaluate on the Spider held-out test set?
+Answer:
+They avoided using the Spider held-out test set because evaluation would require sending data through the OpenAI API, risking data leakage and retraining of Codex on those examples.
+
+=== qa break ===
+
+Question:
+What future research directions do the authors suggest based on their findings?
+Answer:
+Future work includes investigating finetuning Codex models for Text-to-SQL, improving prompt design to control Codex behavior and fix ambiguous errors, and exploring the benefits of combining prompt-based few-shot learning with finetuning.
+
+=== qa break ===
+

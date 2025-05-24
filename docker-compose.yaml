@@ -4,10 +4,57 @@ services:
     container_name: qdrant
     expose:
       - "6333"
-    ports:
-      - "6333:6333"
     volumes:
       - ./qdrant_data:/qdrant/storage
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  agent:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    container_name: agent_app
+    expose:
+      - "8000"
+    depends_on:
+      - qdrant
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LANGSMITH_API_KEY=${LANGSMITH_API_KEY}
+      - QDRANT_URL=http://qdrant:6333
+    volumes:
+      - ./embeddings:/app/embeddings 
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  demo:
+    build:
+      context: ./demo
+      dockerfile: Dockerfile.demo
+    container_name: demo_app
+    expose:
+      - "8501"
+    depends_on:
+      - agent
+    environment:
+      - AGENT_API_URL=http://agent_app:8000/query
+      - AGENT_CLEAR_MEMORY_URL=http://agent_app:8000/clear_memory
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - agent
+      - demo
     networks:
       - app-network
     restart: unless-stopped

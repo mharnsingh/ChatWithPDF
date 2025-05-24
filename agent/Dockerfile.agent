@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+
+COPY vectorstore.py /app/vectorstore.py
+COPY ingest_pdf.py /app/ingest_pdf.py
+COPY rag_utils.py /app/rag_utils.py
+COPY schema.py /app/schema.py
+COPY app.py /app/app.py
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]

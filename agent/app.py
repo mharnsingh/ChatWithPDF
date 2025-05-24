@@ -4,10 +4,10 @@ from langchain_core.documents import Document
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
 
-from rag.vectorstore import InitVectorStore
-from rag.rag_utils import CitedAnswer, format_citation, format_docs, \
+from vectorstore import InitVectorStore
+from rag_utils import CitedAnswer, format_citation, format_docs, \
     qa_prompt_template, agent_prompt_template
-from schemas import AgentRequest, AddDocsRequest
+from agent.schema import AgentRequest, AddDocsRequest
 
 from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
@@ -16,7 +16,7 @@ import uvicorn
 import os
 
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGSMITH_API_KEY", "")
 
 os.environ["LANGSMITH_TRACING"] = "true"

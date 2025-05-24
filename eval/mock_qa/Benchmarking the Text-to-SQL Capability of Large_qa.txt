@@ -1,0 +1,70 @@
+Question:
+What is the main objective of the paper titled 'Benchmarking the Text-to-SQL Capability of Large Language Models: A Comprehensive Evaluation'?
+Answer:
+The main objective is to construct a comprehensive benchmark and evaluation framework to systematically assess the performance of Large Language Models (LLMs) across various sub-tasks in the Text-to-SQL process, addressing issues like prompt template optimization and overfitting risks.
+
+=== qa break ===
+
+Question:
+What are the five evaluation tasks formulated in this study to assess LLMs in the Text-to-SQL process?
+Answer:
+The five evaluation tasks are Text-to-SQL, SQL Debugging, SQL Optimization, Schema Linking, and SQL-to-Text.
+
+=== qa break ===
+
+Question:
+Why was the 'BigTable-0.2k' dataset constructed, and how does it differ from existing datasets?
+Answer:
+The 'BigTable-0.2k' dataset was constructed to mitigate overfitting risks in LLMs by augmenting and diversifying the BIRD dataset with queries of varying difficulty and number of tables, including more complex queries involving four or more tables, thus providing a more nuanced evaluation of LLM capabilities.
+
+=== qa break ===
+
+Question:
+Which prompt template was found to be optimal for zero-shot Text-to-SQL tasks in this study?
+Answer:
+The 'SimpleDDL-MD-Chat' prompt template was found to consistently outperform other templates and was selected as the optimal prompt for zero-shot Text-to-SQL tasks.
+
+=== qa break ===
+
+Question:
+How do coding-specific LLMs compare to general-purpose LLMs in Text-to-SQL performance according to the study?
+Answer:
+Coding-specific LLMs like SQLCoder-34B and Codellama-34B generally outperform general-purpose LLMs such as Llama2-Chat-70B, but some general-purpose models like InternLM and InternLM2 can achieve comparable performance without fine-tuning for coding tasks.
+
+=== qa break ===
+
+Question:
+What challenges in existing Text-to-SQL benchmarks does this paper aim to address?
+Answer:
+The paper aims to address the lack of consensus on optimal prompt templates, inadequate exploration of LLM performance across sub-tasks, and the risk of overfitting in existing benchmarks, which limit reliable evaluation and optimization of LLM-based Text-to-SQL systems.
+
+=== qa break ===
+
+Question:
+What evaluation metrics are used to assess SQL query accuracy in this study?
+Answer:
+Execution Accuracy (EX) is primarily used to evaluate SQL query accuracy, measuring whether the execution result of the predicted query matches the gold standard. Additionally, Valid Efficiency Score (VES) is used for assessing SQL optimization, combining accuracy and execution efficiency.
+
+=== qa break ===
+
+Question:
+How does the number of ground truth tables involved in a query affect LLM performance on the Text-to-SQL task?
+Answer:
+The study finds that LLM performance, measured by execution accuracy, generally decreases as the number of ground truth tables involved in the query increases, indicating higher difficulty with more complex multi-table queries.
+
+=== qa break ===
+
+Question:
+What are the two categories of LLMs evaluated in this benchmarking study?
+Answer:
+The study evaluates general-purpose LLMs designed for versatile text generation and coding-specific LLMs fine-tuned for programming and code generation tasks.
+
+=== qa break ===
+
+Question:
+What is the significance of the prompt engineering in LLM-based Text-to-SQL systems as discussed in the paper?
+Answer:
+Prompt engineering is crucial for guiding LLMs to generate accurate SQL queries; the study systematically investigates prompt template components and identifies the most effective design to optimize zero-shot Text-to-SQL performance.
+
+=== qa break ===
+

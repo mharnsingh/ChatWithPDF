@@ -1,0 +1,70 @@
+Question:
+What are the three commonly employed settings for in-context learning in text-to-SQL tasks?
+Answer:
+The three commonly employed settings are zero-shot, single-domain few-shot, and cross-domain few-shot text-to-SQL.
+
+=== qa break ===
+
+Question:
+How does the inclusion of table relationships and content affect the performance of large language models in zero-shot text-to-SQL?
+Answer:
+Including table relationships (such as foreign keys) and table content in the prompt improves the performance of large language models in zero-shot text-to-SQL, as these provide crucial database knowledge for better query generation.
+
+=== qa break ===
+
+Question:
+What is the difference between single-domain and cross-domain few-shot text-to-SQL settings?
+Answer:
+In single-domain few-shot text-to-SQL, demonstration examples come from the same database as the test question, whereas in cross-domain few-shot text-to-SQL, demonstrations come from different databases than the test database, testing the model's generalization to new domains.
+
+=== qa break ===
+
+Question:
+Why is prompt normalization important in text-to-SQL tasks with LLMs?
+Answer:
+Prompt normalization, such as converting SQL keywords and schema to lowercase and unifying spaces and line breaks, reduces token count and tends to slightly improve execution accuracy, leading to more consistent and efficient prompts.
+
+=== qa break ===
+
+Question:
+What are the three methods discussed for representing database content in prompts?
+Answer:
+The three methods are InsertRow (using INSERT INTO statements for rows), SelectRow (using SELECT * FROM Table LIMIT R to show rows), and SelectCol (using SELECT DISTINCT for each column to show distinct values).
+
+=== qa break ===
+
+Question:
+How does the number of in-domain demonstration examples affect LLM performance in single-domain text-to-SQL?
+Answer:
+Increasing the number of in-domain demonstration examples generally improves LLM performance, helping the model better learn table relationships and reducing sensitivity to how table content is represented.
+
+=== qa break ===
+
+Question:
+What is the observed impact of prompt length on LLM performance in cross-domain few-shot text-to-SQL?
+Answer:
+LLM performance shows an inverted-U relationship with prompt length; performance improves up to a certain prompt length but significantly decreases when the prompt becomes excessively long, indicating a preferred prompt length for optimal results.
+
+=== qa break ===
+
+Question:
+How do Codex and ChatGPT compare in zero-shot text-to-SQL performance?
+Answer:
+Codex consistently outperforms ChatGPT in zero-shot text-to-SQL across various prompt constructions, achieving higher execution accuracy.
+
+=== qa break ===
+
+Question:
+What role do in-domain demonstrations play in mitigating LLM sensitivity to database content representation?
+Answer:
+In-domain demonstrations reduce LLMs' sensitivity to different representations of table content, making performance differences between content presentation methods less significant as more demonstrations are added.
+
+=== qa break ===
+
+Question:
+What is the recommended prompt construction strategy for zero-shot text-to-SQL based on the study's findings?
+Answer:
+The recommended strategy is to use Codex with normalized prompts that include the CreateTable schema representation combined with SelectCol to present table content, as this approach yields the highest execution accuracy.
+
+=== qa break ===
+

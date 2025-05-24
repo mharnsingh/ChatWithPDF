@@ -1,0 +1,70 @@
+Question:
+What is the main goal of text-to-SQL systems as described in the survey?
+Answer:
+The main goal of text-to-SQL systems is to translate natural language queries into equivalent SQL queries that are valid for a given relational database and return results matching the user's intent, thereby bridging the gap between users and data.
+
+=== qa break ===
+
+Question:
+What are some of the key challenges in understanding natural language queries for text-to-SQL systems?
+Answer:
+Key challenges include lexical ambiguity (words with multiple meanings), syntactic ambiguity (multiple interpretations based on sentence structure), semantic ambiguity (multiple semantic interpretations), context-dependent ambiguity (meaning varies by context, domain, or user), paraphrasing (different expressions with same meaning), inference (elliptical queries and follow-up questions), and user mistakes such as spelling or grammatical errors.
+
+=== qa break ===
+
+Question:
+How does the SQL language pose challenges for text-to-SQL translation?
+Answer:
+SQL has a strict syntax requiring syntactically and semantically correct queries, which can be complex compared to natural language expressions. Challenges include complex nested queries, vocabulary gaps between user terms and database schema, schema ambiguity where terms map to multiple elements, implicit join operations due to normalization, and differences in entity modeling across databases.
+
+=== qa break ===
+
+Question:
+What are the two most popular large-scale benchmarks for training and evaluating neural text-to-SQL systems?
+Answer:
+The two most popular benchmarks are WikiSQL and Spider. WikiSQL contains over 80,000 NL/SQL pairs on single tables with simple queries, while Spider contains over 10,000 NL/SQL pairs on 200 databases across 138 domains with complex queries including nesting and multiple SQL clauses.
+
+=== qa break ===
+
+Question:
+What are the main differences between the WikiSQL and Spider datasets?
+Answer:
+WikiSQL is crowd-sourced, contains simple single-table queries without complex SQL clauses, and has some errors. Spider is created by experts, covers multiple databases and domains, includes complex queries with nesting and all common SQL elements, and is of higher quality with query categorization into hardness levels.
+
+=== qa break ===
+
+Question:
+Why have domain-specific text-to-SQL datasets seen less widespread use compared to WikiSQL and Spider?
+Answer:
+Domain-specific datasets focus on a single domain with usually a single database, have relatively small sizes, often lack predefined train/dev/test splits for fair comparison, and thus cannot demonstrate universal generalization capabilities. However, they are important for applications requiring high performance in specific domains.
+
+=== qa break ===
+
+Question:
+What types of ambiguities are common in natural language queries that complicate text-to-SQL translation?
+Answer:
+Common ambiguities include lexical ambiguity (polysemy), syntactic ambiguity, semantic ambiguity, and context-dependent ambiguity, where the meaning of terms depends on query context, data domain, or user goals.
+
+=== qa break ===
+
+Question:
+What evaluation metrics are commonly used to assess text-to-SQL system performance?
+Answer:
+Common metrics include string matching (exact string equality), execution accuracy (comparing results of executing predicted and ground truth queries), component matching (accuracy of individual SQL components like SELECT columns), exact set matching (all components correct), exact set match without values (ignoring values in conditions), and sub-tree elements matching (partial component match F1).
+
+=== qa break ===
+
+Question:
+What is the significance of the Spider-DK and Spider-Syn datasets?
+Answer:
+Spider-DK extends Spider to test cross-domain generalization and robustness to domain-specific vocabulary, while Spider-Syn focuses on robustness to synonyms and different vocabulary. Both highlight important challenges for text-to-SQL systems beyond the original Spider dataset.
+
+=== qa break ===
+
+Question:
+What are some open challenges in building effective neural text-to-SQL systems identified in the survey?
+Answer:
+Open challenges include handling natural language ambiguities, bridging the vocabulary and schema gaps, generating syntactically and semantically correct SQL queries especially for complex queries, improving generalization across domains and databases, dealing with user mistakes and paraphrasing, and developing better evaluation metrics that capture semantic correctness.
+
+=== qa break ===
+
