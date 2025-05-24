@@ -7,7 +7,7 @@ from langgraph.prebuilt import create_react_agent
 from vectorstore import InitVectorStore
 from rag_utils import CitedAnswer, format_citation, format_docs, \
     qa_prompt_template, agent_prompt_template
-from agent.schema import AgentRequest, AddDocsRequest
+from schema import AgentRequest, AddDocsRequest
 
 from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
@@ -60,6 +60,7 @@ agent = create_react_agent(
 
 # initialize application server
 app = FastAPI()
+print("Application started successfully.")
 thread_id = uuid4()
 config = {"configurable": {"thread_id": thread_id}}
 
@@ -71,7 +72,8 @@ async def query_agent(request: AgentRequest):
             {"messages": [{"role": "user", "content": request.query}]},
             config=config,
         )
-        return {"result": result}
+        answer = result["messages"][-1].content
+        return {"answer": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     

@@ -24,7 +24,7 @@ services:
       - LANGSMITH_API_KEY=${LANGSMITH_API_KEY}
       - QDRANT_URL=http://qdrant:6333
     volumes:
-      - ./embeddings:/app/embeddings 
+      - ./agent/embeddings:/app/embeddings 
     networks:
       - app-network
     restart: unless-stopped
