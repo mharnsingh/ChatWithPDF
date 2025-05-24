@@ -73,7 +73,7 @@ async def query_agent(request: AgentRequest):
             config=config,
         )
         answer = result["messages"][-1].content
-        return {"answer": answer}
+        return {"result": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
