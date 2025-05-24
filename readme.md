@@ -45,8 +45,8 @@ This repository contains a Retrieval-Augmented Generation (RAG) application that
 ### 1. Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/chat-with-pdf-rag.git
-cd chat-with-pdf-rag
+git clone https://github.com/mharnsingh/ChatWithPDF.git
+cd ChatWithPDF
 ```
 
 ### 2. Configure Environment Variables
