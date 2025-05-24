@@ -101,3 +101,4 @@ This will start the following services:
 - Evaluation pipeline.
 - Multi-user session and memory support.
 - Advanced chunking and retrieval strategies.
+- PDF upload in demo page for user-specific queries.

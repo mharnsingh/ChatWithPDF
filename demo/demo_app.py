@@ -19,7 +19,7 @@ if st.button("Submit Query"):
             if response.status_code == 200:
                 result = response.json().get("result", {})
                 st.success("Response:")
-                st.json(result)
+                st.write(result)
             else:
                 st.error(f"Error {response.status_code}: {response.text}")
         except Exception as e:

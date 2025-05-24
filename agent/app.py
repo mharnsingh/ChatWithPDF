@@ -72,7 +72,7 @@ async def query_agent(request: AgentRequest):
             {"messages": [{"role": "user", "content": request.query}]},
             config=config,
         )
-        answer = result["messages"][-1].content
+        answer = result["messages"][-1].content.strip()
         return {"result": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
