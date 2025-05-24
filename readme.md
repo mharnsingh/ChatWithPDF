@@ -10,7 +10,7 @@ This repository contains a Retrieval-Augmented Generation (RAG) application that
 - **demo/**  
   Streamlit web interface for interacting with the RAG agent.
 
-- **eval/**  
+- **eval/**
   Contains mock Q&A pairs to support future evaluation pipelines.
 
 - **qdrant_data/**
